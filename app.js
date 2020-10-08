@@ -27,17 +27,18 @@ function draw(e) {
   lastY = e.offsetY;
   lastX = e.offsetX;
   hue++;
-  if (hue >= 360) {
+  if (hue >= 100) {
     hue = 0;
   }
+  ctx.lineWidth = hue;
   if (ctx.lineWidth >= 100) {
-    console.log(typeof ctx.lineWidth);
+    // console.log(typeof ctx.lineWidth);
     ctx.lineWidth -= 1;
-  } else if (ctx.lineWidth <= 1) {
     console.log(ctx.lineWidth);
+  } else if (ctx.lineWidth < 1) {
+    // console.log(ctx.lineWidth);
     ctx.lineWidth += 1;
   }
-  ctx.lineWidth = hue;
 }
 canvasRef.addEventListener("mousemove", draw);
 canvasRef.addEventListener("mousedown", (e) => {
